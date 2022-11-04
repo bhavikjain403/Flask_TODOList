@@ -1,0 +1,46 @@
+body, html {
+    font-family: sans-serif;
+}
+
+.content {
+    width: 100%;
+}
+
+table, td, th {
+    border: 1px solid #aaa;
+}
+
+table {
+    border-collapse: collapse;
+    width: 70%;
+}
+
+th {
+    height: 30px;
+}
+
+td {
+    text-align: center;
+    padding: 5px;
+}
+
+.form {
+    margin-top: 20px;
+}
+
+#content {
+    width: 40%;
+    padding: 0.5%;
+}
+
+.add_task {
+    background: black;
+    color: white;
+    min-width: 80px;
+    border-radius: 5px;
+}
+
+.add_task:hover {
+    background: darkslategray;
+    border-color: darkslategray;
+}

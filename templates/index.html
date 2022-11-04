@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Task Master</title>
+{% endblock %}
+
+{% block body %}
+
+<div>
+    <h1>Task Master</h1>    
+    {% if tasks|length %}
+        <table>
+            <tr>
+                <th>Task</th>
+                <th>Date Created</th>
+                <th>Last Updated</th>
+                <th>Actions</th>
+            </tr>
+            {% for task in tasks %}
+                <tr>
+                    <td>{{ task.content }}</td>
+                    <td>{{ task.date_created }}</td>
+                    <td>
+                        {% if task.date_created==task.last_updated %}
+                            --
+                        {% else %}
+                            {{ task.last_updated }}
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="/delete/{{ task.id }}"><button class="add_task" style="padding: 5%;">Delete</button></a><br><br>
+                        <a href="/update/{{ task.id }}"><button class="add_task" style="padding: 5%;">Update</button></a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <h3 style="text-align: center;">No tasks to display</h3>
+    {% endif %}
+    <br>
+    <h3>Add Entry</h3>
+    <form action="/" method="POST">
+        <input type="text" name="content" id="content">
+        <input type="submit" value="Add Task" class="add_task" style="padding: 0.5%;">
+    </form>
+    <br>
+    <h5>Created by Bhavik : <a href="https://bhavikj.netlify.app" target="_blank" rel="noopener noreferrer">www.bhavikj.netlify.app</a></h5>
+</div>
+
+{% endblock %}
